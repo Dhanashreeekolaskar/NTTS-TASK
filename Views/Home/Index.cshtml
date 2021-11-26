@@ -1,0 +1,65 @@
+﻿@using ProjectTask.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>List</h2>
+
+<div style=" width:90%; margin:0 auto">
+
+    <table id="myTable" class=" table table-striped table table-bordered table table-hover">
+        <thead>
+            <tr>
+
+                <th>
+                    ProductId
+                </th>
+
+                <th>ProductName</th>
+                <th>CategoryId</th>
+                <th>CategoryName</th>
+
+            </tr>
+
+        </thead>
+    </table>
+</div>
+
+<link href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css" rel="stylesheet" />
+
+@section Scripts{
+    <script>
+        <link href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js " rel="stylesheet" />
+    </script>
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "fliter": false,
+            "orderMulti": false,
+            "ajax": {
+                "url": "/Home/LoadData",
+                "type": "POST",
+                "dataType": "json"
+            },
+            "columns": [
+                { "data": "ProductId", "name": "ProductId", "autoWidth": true },
+                { "data": "ProductName", "name": "ProductName", "autoWidth": true },
+                { "data": "CategoryId", "name": "CategoryId", "autoWidth": true },
+                { "data": "CategoryName", "name": "CategoryName", "autoWidth": true }
+
+
+
+            ]
+
+
+        });
+    });
+
+
+    
+
+</script>
+    }
