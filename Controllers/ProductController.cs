@@ -37,15 +37,28 @@ namespace ProjectTask.Controllers
             var category = _context.Categories.ToList();
             var viewModel = new ProductCategoryViewModel
             {
+                Product = new Product(),
                 Categories = category
+           
             };
 
             return View("ProductForm", viewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new ProductCategoryViewModel
+                {
+                    Product = product,
+                    Categories = _context.Categories.ToList()
+                };
+
+                return View("ProductForm",viewModel);
+            }
             if (product.ProductId==0)
 
             _context.Products.Add(product);
@@ -58,7 +71,7 @@ namespace ProjectTask.Controllers
             }
             _context.SaveChanges();
 
-            return RedirectToAction("Index","Product");
+            return RedirectToAction("Index");
         }
 
 

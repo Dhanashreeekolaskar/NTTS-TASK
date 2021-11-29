@@ -1,29 +1,45 @@
-﻿@model ProjectTask.Models.Category
+﻿@model ProjectTask.Models.ViewModel.ProductCategoryViewModel
+
 @{
     ViewBag.Title = "CategoryForm";
 }
 
-<h2>CategoryForm</h2>
+<h2>Category Form</h2>
 
 @using (Html.BeginForm("Save", "Category"))
+
+
 {
+
+    @Html.ValidationSummary(true, "Please Fix the Following Errors.")
+
     <div class=" form-group">
-        @Html.LabelFor(x=>x.CategoryId)
-        @Html.TextBoxFor(x=>x.CategoryId, new  { @class="form-control"})
+        @Html.LabelFor(x => x.CategoryId)
+        @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })
+
 
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(x=>x.CategoryName)
-        @Html.TextBoxFor(x => x.CategoryName, new {@class="form-control"})
+        @Html.LabelFor(x => x.CategoryName)
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryName)
 
 
 
     </div>
 
-    
 
-    <button type="submit" class="btn btn-success" >Save</button>
+
+
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-success">Save</button>
 }
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
 
 

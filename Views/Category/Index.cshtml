@@ -1,15 +1,20 @@
 ﻿@model IEnumerable<ProjectTask.Models.Category>
 
+@using ProjectTask.Controllers.Api
+
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Category List</h2>
 
+
 <div class="left">
 
     <a href="@Url.Action("CategoryForm", "Category")" class="btn btn-success">Add</a>
 </div>
+
+
 
 <br />
 
@@ -24,7 +29,9 @@
             @Html.DisplayNameFor(model => model.CategoryName)
         </th>
 
-        <th>Action</th>
+        <th>Edit</th>
+
+        <th>Delete</th>
 
     </tr>
 
@@ -38,15 +45,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
 
-                @Html.ActionLink("Delete", "Delete", new
-                    {
-                        Id = item.CategoryId,
-         onclick = "return confirm('Are you sure?');"
-                    })
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) 
+
+                
             </td>
+
+            <td><button data-Categories-id="@item.CategoryId  " class="btn btn-link js-delete">Delete</button></td>
         </tr>
     }
 

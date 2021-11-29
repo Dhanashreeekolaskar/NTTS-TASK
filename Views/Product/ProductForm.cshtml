@@ -7,21 +7,30 @@
 
 @using (Html.BeginForm("Save", "Product"))
 {
+    @Html.ValidationSummary(true, "Please Fix the Following Errors.")
+
     <div class=" form-group">
         @Html.LabelFor(x => x.Product.ProductName)
         @Html.TextBoxFor(x => x.Product.ProductName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Product.ProductName)
 
     </div>
 
     <div class=" form-group">
         @Html.LabelFor(x => x.Product.CategoryId)
-        @Html.DropDownListFor(x => x.Product.CategoryId, new SelectList(Model.Categories, "CategoryId","CategoryId"),"Select Id",new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.Product.CategoryId, new SelectList(Model.Categories, "CategoryId", "CategoryId"), "Select Id", new { @class = "form-control" })
 
     </div>
+    @Html.AntiForgeryToken()
 
-   @Html.HiddenFor(x=>x.Product.ProductId)
+    @Html.HiddenFor(x => x.Product.ProductId)
 
     <button type="submit" class="btn btn-primary">Save</button>
 
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
 }
 

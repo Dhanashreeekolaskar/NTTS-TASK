@@ -15,7 +15,7 @@ namespace ProjectTask.Models
         public string ProductName { get; set; }
 
         [Required]
-        [Display(Name= "Category")]
+        [Display(Name= "CategoryId")]
         public int CategoryId { get; set; }
     }
 }
