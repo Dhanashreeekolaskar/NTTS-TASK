@@ -36,7 +36,7 @@ namespace ProjectTask.Controllers
 
 
         [HttpGet]
-        public ActionResult CategoryForm()
+        public ActionResult Form()
         {
            
             var viewModel = new ProductCategoryViewModel
