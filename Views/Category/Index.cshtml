@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<ProjectTask.Models.Category>
 
-@using ProjectTask.Controllers.Api
+
 
 @{
     ViewBag.Title = "Index";
@@ -18,7 +18,7 @@
 
 <br />
 
-<table class=" table table-striped table-bordered table-hover ">
+<table id="dtbl" class=" table table-striped table-bordered table-hover ">
     <tr>
 
         <th>
@@ -29,9 +29,9 @@
             @Html.DisplayNameFor(model => model.CategoryName)
         </th>
 
-        <th>Edit</th>
+        <th>Action</th>
 
-        <th>Delete</th>
+      
 
     </tr>
 
@@ -47,13 +47,15 @@
             </td>
 
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) 
+                @Html.ActionLink("Edit", "Edit", new { Id = item.CategoryId }) |
 
-                
+                @Html.ActionLink("Delete", "Delete", new { Id = item.CategoryId })
+
             </td>
 
-            <td><button data-Categories-id="@item.CategoryId  " class="btn btn-link js-delete">Delete</button></td>
+            
         </tr>
     }
 
 </table>
+

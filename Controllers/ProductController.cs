@@ -74,7 +74,7 @@ namespace ProjectTask.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [HttpGet]
         public ActionResult Edit(int Id)
         {
             var product = _context.Products.SingleOrDefault(x => x.ProductId == Id);
@@ -97,7 +97,7 @@ namespace ProjectTask.Controllers
         {
             Product product = _context.Products.Find(Id);
             _context.Products.Remove(product);
-            ViewBag.Message = "Delete SucessFully";
+            
             _context.SaveChanges();
 
             return RedirectToAction("Index");

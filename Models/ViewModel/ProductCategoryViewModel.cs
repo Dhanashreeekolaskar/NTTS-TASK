@@ -23,8 +23,8 @@ namespace ProjectTask.Models.ViewModel
         [Required(ErrorMessage = "Please Enter Name.")]
         public string CategoryName { get; set; }
 
-
-
         public IEnumerable<Category> Categories { get; set; }
     }
+
+   
 }

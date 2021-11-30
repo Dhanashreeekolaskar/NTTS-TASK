@@ -9,6 +9,7 @@
 {
     @Html.ValidationSummary(true, "Please Fix the Following Errors.")
 
+
     <div class=" form-group">
         @Html.LabelFor(x => x.Product.ProductName)
         @Html.TextBoxFor(x => x.Product.ProductName, new { @class = "form-control" })

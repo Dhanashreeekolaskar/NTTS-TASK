@@ -3,15 +3,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>ProductList</h2>
+<h2>Product List</h2>
 
 <div class="left">
     
     <a href="@Url.Action("ProductForm", "Product")" class="btn btn-success">Add</a>
 </div>
 
+<br />
 
-<table class=" table table-striped table-bordered table-hover ">
+<table id="dtbl" class=" table table-striped table-bordered table-hover ">
 
     <tr>
         <th>

@@ -36,9 +36,9 @@ namespace ProjectTask.Controllers
 
 
         [HttpGet]
-        public ActionResult Form()
+        public ActionResult CategoryForm()
         {
-           
+
             var viewModel = new ProductCategoryViewModel
             {
                 Category = new Category(),
@@ -46,7 +46,7 @@ namespace ProjectTask.Controllers
 
             };
 
-            return View("CategoryForm", viewModel);
+            return View("CategoryForm",viewModel);
         }
            
         
@@ -59,8 +59,11 @@ namespace ProjectTask.Controllers
             {
                 var viewModel = new ProductCategoryViewModel
                 {
-                    Category = category
+                    Category = new Category(),
+
+
                 };
+
                 return View("CategoryForm",viewModel);
             }
             if (category.CategoryId==0)
@@ -76,24 +79,48 @@ namespace ProjectTask.Controllers
 
 
         }
-            
 
+        [HttpGet]
         public ActionResult Edit(int Id)
         {
             var category = _context.Categories.SingleOrDefault(x => x.CategoryId == Id);
+
+            if (category == null)
+                return HttpNotFound();
+
             var viewModel = new ProductCategoryViewModel
             {
                 Category = new Category(),
 
 
             };
-            if (category == null)
-                return HttpNotFound();
+
             return View("CategoryForm",viewModel);
         }
 
 
-        
+        [HttpGet]
+        public ActionResult Delete(int Id)
+        {
+            Category category = _context.Categories.Find(Id);
+            _context.Categories.Remove(category);
+          
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Category category)
+        {
+
+            _context.Categories.Remove(category);
+            _context.SaveChanges();
+
+
+            return RedirectToAction("Index");
+
+        }
 
 
 
