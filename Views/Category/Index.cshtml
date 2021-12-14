@@ -11,7 +11,7 @@
 
 <div class="left">
 
-    <a href="@Url.Action("CategoryForm", "Category")" class="btn btn-success">Add</a>
+    <a href="@Url.Action("CategoryForm", "Category")" class="btn btn-primary">Add</a>
 </div>
 
 
@@ -31,7 +31,7 @@
 
         <th>Action</th>
 
-      
+
 
     </tr>
 
@@ -49,13 +49,14 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { Id = item.CategoryId }) |
 
+
                 @Html.ActionLink("Delete", "Delete", new { Id = item.CategoryId })
+
 
             </td>
 
-            
+
         </tr>
     }
 
 </table>
-

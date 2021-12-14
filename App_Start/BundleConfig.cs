@@ -10,12 +10,20 @@ namespace ProjectTask
         {
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
-                         "~/Scripts/bootstrap.js",
-                      "~/Scripts/bootbox.js",
-                      "~/Scripts/respond.js",
-                      "~/Scripts/bootstrap.datatables.js",
-                      "~/Scripts/jquery.dataTables.min.js",
-                      "~/Scripts/dataTables.bootstrap.min.js"
+
+                        "~/Script/bootstrap.js",
+
+                         "~/Script/bootbox.js",
+
+                         "~/Script/respond.js",
+
+                         "~/Script/DataTables/jquery.dataTables.js",
+
+                         "~/Script/DataTables/jquery.dataTables.min.js",
+
+                         "~/Script/DataTables/dataTables.bootstrap.js"
+
+
 
                         ));
 
@@ -27,12 +35,16 @@ namespace ProjectTask
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            
-                        
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                       "~/Scripts/bootstrap.js"
+                      
+                       ));
+
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                     "~/Content/dataTables.bootstrap.min.css",
+                      "~/Content/DataTables/dataTables.bootstrap.css",
+                     "~/Content/DataTables/dataTables.bootstrap.min.css",
                       "~/Content/site.css"));
         }
     }

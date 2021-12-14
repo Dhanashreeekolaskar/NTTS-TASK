@@ -111,7 +111,6 @@ C:\Users\dhana\Desktop\Practice\ProjectTask\obj\Debug\ProjectTask.csproj.Generat
 C:\Users\dhana\Desktop\Practice\ProjectTask\obj\Debug\ProjectTask.Migrations.ApplyAnnotationsToProductName.resources
 C:\Users\dhana\Desktop\Practice\ProjectTask\obj\Debug\ProjectTask.Migrations.ApplyAnnotationsToCategoryName.resources
 C:\Users\dhana\Desktop\Practice\ProjectTask\bin\system.Linq.Dynamic.dll
-C:\Users\dhana\Desktop\Practice\ProjectTask\bin\DataTables.Mvc.dll
 C:\Users\dhana\Desktop\Practice\ProjectTask\bin\AutoMapper.dll
 C:\Users\dhana\Desktop\Practice\ProjectTask\bin\System.Net.Http.Formatting.dll
 C:\Users\dhana\Desktop\Practice\ProjectTask\bin\System.Web.Http.dll
